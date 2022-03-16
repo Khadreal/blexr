@@ -1,0 +1,103 @@
+.container__width{
+	max-width: 900px;
+	width: 900px;
+}
+.flex{
+	display: flex;
+}
+.form-layer{
+	flex-grow: 1;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.form-control{
+	display: block;
+	width: 100%;
+	height: calc(2.25rem + 2px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+}
+label{
+	margin-right: 5px;
+}
+.submit{
+	border: 1px solid #242323;
+	background: #242323;
+	color: #fff;
+	padding: .375rem .75rem;
+	border-radius: .25rem;
+	cursor: pointer;
+}
+.submit:hover{
+	background: transparent;
+	color: #242323;
+}
+.flex-col{
+	flex-direction: column;
+}
+.table{
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	font-size: 14px;
+}
+.table td{
+	border-bottom: 1px solid #dee2e6;
+	padding-bottom: 5px;
+}
+.table > table{
+	width: 1200px;
+}
+.bookmaker{
+	font-weight: 700;
+	font-size: 14px;
+}
+.prices{
+	display: flex;
+}
+.prices span{
+	margin-right: 10px;
+}
+.table-striped tbody tr td:nth-of-type(2n+1) {
+	background-color: rgba(0,0,0,.05);
+}
+.table-striped tbody tr td{
+	padding: 10px;
+	text-align: center;
+	border:0
+}
+.align-self_end{
+	align-self: flex-end;
+}
+.justify_end{
+	justify-content: flex-end;
+}
+.team{
+	width: 200px;
+	text-align: center;
+}
+.team small{
+	font-size: 12px;
+}
+.calc__odds{
+	background: #039d9d;
+	padding: 10px;
+	color:  #fff;
+	font-size:  14px;
+}
+.calc__title{
+	font-size: 14px;
+}
+.calc__button{
+	padding: 10px 10px;
+	border: 1px solid transparent;
+	color: #fff;
+	background: #000;
+	cursor: pointer;
+	border-radius: .25rem;
+}

@@ -1,0 +1,23 @@
+{
+	"name": "blexr/calculator",
+	"description": "A simple bettings odds plugin",
+	"homepage": "https://github.com/khadreal/symphony",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Opeyemi Ibrahim",
+			"email": "opeyemi.khadri@gmail.com",
+			"homepage": "https://khadreal.github.io"
+		}
+	],
+	"require-dev": {
+		"php": ">=7"
+	},
+	"autoload": {
+    "psr-4": {
+      "Symphony\\" : "."
+    }
+  },
+	"autoload-dev": {},
+	"scripts": {}
+}
