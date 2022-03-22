@@ -1,103 +1,128 @@
-.container__width{
+.container__width {
 	max-width: 900px;
 	width: 900px;
 }
-.flex{
+
+.flex {
 	display: flex;
 }
-.form-layer{
+.flex-col {
+	flex-direction: column;
+}
+
+.align-self_end {
+	align-self: flex-end;
+}
+
+.justify_end {
+	justify-content: flex-end;
+}
+
+.form-layer {
 	flex-grow: 1;
 	justify-content: space-between;
 	margin-bottom: 20px;
 }
-.form-control{
+.form-control {
 	display: block;
 	width: 100%;
 	height: calc(2.25rem + 2px);
-	padding: .375rem .75rem;
+	padding: 0.375rem 0.75rem;
 	font-size: 1rem;
 	line-height: 1.5;
 	color: #495057;
 	background-color: #fff;
 	border: 1px solid #ced4da;
-	border-radius: .25rem;
+	border-radius: 0.25rem;
 }
-label{
+
+label {
 	margin-right: 5px;
 }
-.submit{
+
+.submit {
 	border: 1px solid #242323;
 	background: #242323;
 	color: #fff;
-	padding: .375rem .75rem;
-	border-radius: .25rem;
+	padding: 0.375rem 0.75rem;
+	border-radius: 0.25rem;
 	cursor: pointer;
 }
-.submit:hover{
+.submit:hover {
 	background: transparent;
 	color: #242323;
 }
-.flex-col{
-	flex-direction: column;
-}
-.table{
+
+.table {
 	display: block;
 	width: 100%;
 	overflow-x: auto;
-	font-size: 14px;
+	font-size: 0.875rem;
 }
-.table td{
+.table.loading {
+	position: relative;
+}
+.table.loading:after {
+	position: absolute;
+	content: "";
+	background: #69656552 url("../spinner.gif") no-repeat center center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+.table td {
 	border-bottom: 1px solid #dee2e6;
 	padding-bottom: 5px;
 }
-.table > table{
+.table > table {
 	width: 1200px;
 }
-.bookmaker{
+
+.bookmaker {
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 0.875rem;
 }
-.prices{
+
+.prices {
 	display: flex;
 }
-.prices span{
+.prices span {
 	margin-right: 10px;
 }
-.table-striped tbody tr td:nth-of-type(2n+1) {
-	background-color: rgba(0,0,0,.05);
-}
-.table-striped tbody tr td{
-	padding: 10px;
+
+.table-striped tbody tr td {
+	padding: 0.625rem;
 	text-align: center;
-	border:0
+	border: 0;
 }
-.align-self_end{
-	align-self: flex-end;
+.table-striped tbody tr td:nth-of-type(2n+1) {
+	background-color: rgba(0, 0, 0, 0.05);
 }
-.justify_end{
-	justify-content: flex-end;
-}
-.team{
+
+.team {
 	width: 200px;
 	text-align: center;
 }
-.team small{
-	font-size: 12px;
+.team small {
+	font-size: 0.75rem;
 }
-.calc__odds{
+
+.calc__odds {
 	background: #039d9d;
 	padding: 10px;
-	color:  #fff;
-	font-size:  14px;
+	color: #fff;
+	font-size: 0.875rem;
 }
-.calc__title{
-	font-size: 14px;
+.calc__title {
+	font-size: 0.875rem;
 }
-.calc__button{
-	padding: 10px 10px;
+.calc__button {
+	padding: 0.625rem 0.625rem;
 	border: 1px solid transparent;
 	color: #fff;
 	background: #000;
 	cursor: pointer;
-	border-radius: .25rem;
+	border-radius: 0.25rem;
 }
+
+/*# sourceMappingURL=style.css.map */
