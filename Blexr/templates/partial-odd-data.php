@@ -1,6 +1,7 @@
 <?php 
 use Symphony\Blexr\Component;
 
+if( !empty( $data ) ) :
 foreach ( $data as $event ) : ?>
 <tr>
 	<td>
@@ -30,4 +31,13 @@ foreach ( $data as $event ) : ?>
         </table>
     </td>
 </tr>
-<?php endforeach; ?>
+<?php 
+endforeach;
+else:?>
+
+<tr>
+    <td>
+        <?php _e( 'No result! Please try again', 'blexr-odd' ); ?>
+    </td>
+</tr>
+<?php endif;  ?>

@@ -125,7 +125,7 @@ class Component
     	$url = self::ENDPOINT . '?apiKey='. self::API_KEY;
     	$retval = wp_remote_get( $url );
 
-    	return json_decode( $retval['body'], true ) ?? '';	
+    	return ! is_wp_error( $retval ) ? json_decode( $retval['body'], true ) : [];
     }
 
 

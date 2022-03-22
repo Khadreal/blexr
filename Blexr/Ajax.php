@@ -23,11 +23,12 @@ class Ajax
 	 */
 	public function registerCallbacks() : void
 	{
-		
+		add_action( 'wp_ajax_nopriv_get_campaigns_list', [ $this, 'actionOddsFilter' ] );
 	}
 
-	/**
-	 * Register endpoint
-	 */
 	
+	public function actionOddsFilter()
+	{
+		
+	}
 }

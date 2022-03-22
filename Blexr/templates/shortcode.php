@@ -16,7 +16,7 @@ $sports = ( new Component )->getSports();
 	<form class="flex form-layer blexr__filter" method="GET">
 		<div class="flex">
 			<label for="sport"><?php _e( 'Sport', 'blexr-odd' ); ?></label>
-			<select id="sport" class="form-control">
+			<select id="sport" class="form-control" name="sport">
 				<?php if( is_array($sports ) ) : ?>
 				<?php foreach ($sports as $sport): ?>
 					<option value="<?php echo $sport['key']; ?>"><?php echo $sport['title']; ?></option>
@@ -27,7 +27,7 @@ $sports = ( new Component )->getSports();
 		</div>
 		<div class="flex">
 			<label for="region"><?php _e( 'Region', 'blexr-odd' ); ?></label>
-			<select id="region" class="form-control">
+			<select name="region" id="region" class="form-control">
 				<?php foreach( [ 'au' => 'Australia', 'eu' => 'Europe', 'uk' => 'United Kingdom', 'us' => 'United States' ] as $key => $region ) : ?>
 				<option value="<?php echo $key; ?>"><?php echo $region ; ?></option>
 				<?php endforeach;?>
@@ -35,11 +35,10 @@ $sports = ( new Component )->getSports();
 		</div>
 		<div class="flex">
 			<label id="market"><?php _e( 'Market', 'blexr-odd' );?></label>
-			<select id="market" class="form-control">
-				<?php
-
-				?>
-				<option>Head to head</option>
+			<select name="market" id="market" class="form-control">
+				<?php foreach( $markets as $key => $market ) :?>
+				<option value="<?php echo $key; ?>"><?php echo $market; ?></option>
+				<?php endforeach ;?>
 			</select>
 		</div>
 

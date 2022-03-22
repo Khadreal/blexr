@@ -19,7 +19,7 @@ Init.prototype.addMore = function() {
 			inputholder = document.createElement('div'),
 			inputElement = document.createElement('input');
 
-		for (var i = 2 - 1; i >= 0; i--) {
+		Array.from({ length:inputLength }).forEach( item => {
 			inputElement.classList.add('form-control')
 			inputElement.setAttribute('placeholder', 'Enter stake')
 
@@ -28,22 +28,42 @@ Init.prototype.addMore = function() {
 			tableRow.appendChild(tableData)
 
 			__this.calculatorTable.appendChild(tableRow)
-		}
+		});
 	})
 }
 
 Init.prototype.filterOptions = function(){
+	let tableData = document.querySelector('.table tbody'),
+		__this = this;
 
-	console.log(90);
-	var url = new URL('/blexr-odd-filter/'),
-    params = {lat:35.696233, long:139.570431};
-	Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-	fetch(url)
-		.then(response => response.text())
-		.then(html => {
-			document.querySelector('.table tbody').innerHTML = html
-		})
+	this.filterform.addEventListener('submit', function(evt){
+		evt.preventDefault();
+		
+		//Add loading class to table
+		document.querySelector('.table').classList.add('loading')
+		const params = {
+		    markets: document.querySelector('#market').value,
+		    sports: document.querySelector('#sport').value,
+		    regions: document.querySelector('#region').value
+		};
+
+		const get = (url, params) => __this.processRequest(url, params);
+
+		get("blexr-odd-filter", params).then((response) => {
+			document.querySelector('.table').classList.remove('loading')
+		  	tableData.innerHTML = ''
+		   	tableData.innerHTML = response
+		});
+	});
 }
+
+Init.prototype.processRequest = function(url, params = {} ){
+	url += "?" + new URLSearchParams(params).toString();
+
+  	const result = fetch(url).then((response) => response.text());
+
+  	return result;
+};
 
 document.addEventListener("DOMContentLoaded", function() {
     new Init();
