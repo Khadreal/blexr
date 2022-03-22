@@ -76,7 +76,7 @@ class Component
 		ob_start();
 
         $type = $attributes['type'] ?? 'all';
-		include_once 'templates/shortcode.php';
+		include_once 'templates/calculator.php';
 
 		return ob_get_clean();
 	}

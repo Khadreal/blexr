@@ -33,15 +33,18 @@ $formats = [
 				<tr>
 					<td>
 						<div class="flex">
-							<input type="text" class="form-control" placeholder="<?php _e( 'Enter stake', 'blexr-odd' ); ?>">
+							<input type="text" class="form-control stake" placeholder="<?php _e( 'Enter stake', 'blexr-odd' ); ?>">
 						</div>
 					</td>
 					<td>
 						<div class="flex">
-							<input type="text" class="form-control" name="" placeholder="<?php _e( 'Enter odds', 'blexr-odd' ); ?>">
+							<input type="text" class="form-control odds" name="" placeholder="<?php _e( 'Enter odds', 'blexr-odd' ); ?>">
 						</div>
 					</td>
 				</tr>
+				
+			</tbody>
+			<tfoot>
 				<tr>
 					<td>&nbsp;</td>
 					<td colspan="2" class="flex justify_end">
@@ -51,11 +54,11 @@ $formats = [
 				<tr>
 					<td>&nbsp;</td>
 					<td colspan="2" class="flex justify_end">
-						<button class="calc__button"><?php _e( 'Calculate payout', 'blexr-odd' );?></button>
-						<div class="notf"></div>
+                        <span class="align__self-center">Payout:</span>
+                        <span class="calc__button payout">$0.00</span>
 					</td>
 				</tr>
-			</tbody>
+			</tfoot>
 		</table>
 	</div>
 </div>
