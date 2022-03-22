@@ -1,6 +1,3 @@
-
-
-
 let stake = document.querySelector('.stake'),
 	odds = document.querySelectorAll('.odds');
 
@@ -34,17 +31,20 @@ let calculateOdds = () => {
 	return retval;
 }
 
-stake.addEventListener("input", (e) => {
-	let stakeInput = parseInt(e.target.value);
-	if( isNaN(stakeInput)) {
-		document.querySelector('.payout').innerHTML = '0.00';
+if(stake) {
+	stake.addEventListener("input", (e) => {
+		let stakeInput = parseInt(e.target.value);
+		if( isNaN(stakeInput)) {
+			document.querySelector('.payout').innerHTML = '0.00';
 
-		return;
-	}
-	stakeValue = stakeInput
+			return;
+		}
+		stakeValue = stakeInput
 
-	document.querySelector('.payout').innerHTML = calculateOdds().toFixed(2);
-});
+		document.querySelector('.payout').innerHTML = calculateOdds().toFixed(2);
+	});
+}
+
 
 var Init = function() {
 	this.addMoreBtn = document.querySelector('.add__more');
@@ -96,6 +96,7 @@ Init.prototype.filterOptions = function(){
 		
 		//Add loading class to table
 		document.querySelector('.table').classList.add('loading')
+
 		const params = {
 		    markets: document.querySelector('#market').value,
 		    sports: document.querySelector('#sport').value,
@@ -115,9 +116,7 @@ Init.prototype.filterOptions = function(){
 Init.prototype.processRequest = function(url, params = {} ){
 	url += "?" + new URLSearchParams(params).toString();
 
-  	const result = fetch(url).then((response) => response.text());
-
-  	return result;
+	return fetch(url).then((response) => response.text());
 };
 
 document.addEventListener("DOMContentLoaded", function() {

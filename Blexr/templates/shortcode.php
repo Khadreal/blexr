@@ -34,7 +34,7 @@ $sports = ( new Component )->getSports();
 			</select>
 		</div>
 		<div class="flex">
-			<label id="market"><?php _e( 'Market', 'blexr-odd' );?></label>
+			<label for="market"><?php _e( 'Market', 'blexr-odd' );?></label>
 			<select name="market" id="market" class="form-control">
 				<?php foreach( $markets as $key => $market ) :?>
 				<option value="<?php echo $key; ?>"><?php echo $market; ?></option>

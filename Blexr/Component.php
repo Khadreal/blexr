@@ -30,6 +30,7 @@ class Component
 	public function init() : void
 	{
 		$this->registerCallbacks();
+        ( new Admin() )->init();
 	}
 
 	/**
@@ -76,7 +77,7 @@ class Component
 		ob_start();
 
         $type = $attributes['type'] ?? 'all';
-		include_once 'templates/calculator.php';
+		include_once 'templates/shortcode.php';
 
 		return ob_get_clean();
 	}
@@ -122,7 +123,8 @@ class Component
 
     public function getSports()
     {
-    	$url = self::ENDPOINT . '?apiKey='. self::API_KEY;
+        $key = get_option( 'blexr_api_key' ) ?? self::API_KEY;
+    	$url = self::ENDPOINT . '?apiKey='. $key;
     	$retval = wp_remote_get( $url );
 
     	return ! is_wp_error( $retval ) ? json_decode( $retval['body'], true ) : [];
@@ -173,9 +175,9 @@ class Component
         	$sport = $_REQUEST['sports'] ?? 'soccer_epl';
 
         	$query = [
-        		'apiKey' => self::API_KEY,
+        		'apiKey' => get_option( 'blexr_api_key' ) ?? self::API_KEY,
         		'regions' => sanitize_text_field( $_REQUEST['regions'] ) ?? 'eu',
-        		//'markets' => $_REQUEST['markets'] ?? 'h2h'
+        		'markets' => $_REQUEST['markets'] ?? 'h2h'
         	];
 
             $data =  $this->getOddsDataFromAPI( $query, $sport );
@@ -197,14 +199,13 @@ class Component
     }
 
 
-
     /**
      * @param array $query
      * @param string $sport
-     * 
-     * @return 
+     *
+     * @return array|mixed
      */
-    private function getOddsDataFromAPI( array $query, $sport = 'soccer_epl' )
+    private function getOddsDataFromAPI( array $query, string $sport = 'soccer_epl' )
     {
     	$url = self::ENDPOINT . $sport . '/odds?' . http_build_query( $query );
     	$retval = wp_remote_get( $url );
@@ -220,7 +221,7 @@ class Component
 	public function initialTableData()
 	{
 		$query = [
-			'apiKey' => self::API_KEY,
+			'apiKey' => get_option( 'blexr_api_key' ) ?? self::API_KEY,
         	'regions' => 'eu',
 		];
 		
